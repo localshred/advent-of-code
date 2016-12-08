@@ -27,6 +27,12 @@ TESTS = [
 
 START_KEY = 5
 
+# Numpad
+#
+#   1 2 3
+#   4 5 6
+#   7 8 9
+#
 # x, y
 COORDINATES_TO_KEY = {}
 COORDINATES_TO_KEY[[0, 0]] = 1
