@@ -9,12 +9,12 @@ PUZZLE = convert(File.readlines(File.expand_path("input.txt", __dir__)))
 TESTS = [
   [
     convert(%q{
-      10  5  25
-      150 72 24
-      2   3  4
-      12  13 14
-      14  13 12
-      4   2  3
+      10 150 2
+      5  72  3
+      32 24  4
+      12 14  4
+      13 13  2
+      14 12  3
     }.lines),
     4
   ]
@@ -22,14 +22,27 @@ TESTS = [
 
 def valid?(values)
   values.permutation.to_a.all? do |(a, b, c)|
-    (a + b) > c
+    ret = (a + b) > c
+    puts "(#{a} + #{b}) > #{c} -> #{ret.inspect}"
+    ret
   end
 end
 
 def solve(input)
-  input.reduce(0) do |sum, line|
-    values = line.split(/\s+/).map(&:to_i)
-    valid?(values) \
+  parsed = input.map do |line|
+    line.split(/\s+/).map(&:to_i)
+  end
+
+  rotated = parsed.each_slice(3).map do |((a1, a2, a3), (b1, b2, b3), (c1, c2, c3))|
+    [
+      [a1, b1, c1],
+      [a2, b2, c2],
+      [a3, b3, c3],
+    ]
+  end
+
+  rotated.flatten(1).reduce(0) do |sum, line|
+    valid?(line) \
       ? sum + 1 \
       : sum
   end
