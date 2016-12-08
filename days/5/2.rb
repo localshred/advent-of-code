@@ -59,7 +59,7 @@ end
 
 def run
   TESTS.each_with_index do |(input, expected), index|
-  #  test("Test #{index}", input, expected)
+   test("Test #{index}", input, expected)
   end
   puts "[Puzzle]: #{solve(PUZZLE)}"
 end
