@@ -4,7 +4,7 @@ def convert(input)
     .select { |line| !line.empty? }
 end
 
-PUZZLE = convert(File.readlines(File.expand_path("1_input.txt", __dir__)))
+PUZZLE = convert(File.readlines(File.expand_path("input.txt", __dir__)))
 
 TESTS = [
   [
