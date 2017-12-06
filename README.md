@@ -1,3 +1,3 @@
-# 2016 Advent of Code
+# Advent of Code problems
 
-Just playing around and having a blast with [Advent of Code 2016](http://adventofcode.com/).
+[Advent of Code](http://adventofcode.com/)
